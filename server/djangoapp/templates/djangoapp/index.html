@@ -16,12 +16,31 @@
   <body style="display: flex; flex-direction: column; height: 100vh">
 
      <!-- Navbar -->
-     <nav class="navbar">
+     <nav class="d-flex p-3 align-items-center">
+
       <div class="navbar-brand">Best Cars</div>
-      <div>
+
+      <div class="flex-fill">
         <a class="btn btn-link" href="/djangoapp/about">About Us</a>
         <a class="btn btn-link" href="/djangoapp/contact">Contact Us</a>
       </div>
+
+      {% if user.is_authenticated %}
+      <div class="d-flex align-items-center">
+        <a class="btn btn-link" href="#">{{ user.first_name }}</a>
+        <a class="btn btn-link" href="/djangoapp/logout">Logout</a>
+      </div>
+
+      {% else %}
+      <form action="/djangoapp/login" method="POST" class="d-flex align-items-center" style="gap: 10px" >
+        {% csrf_token %}
+        <input class="form-control" id="username" name="username" type="text">
+        <input class="form-control" id="password" name="password" type="password">
+        <input class="btn btn-primary .px-2" type="submit" value="Login">
+        <a href="/djangoapp/registration" class="btn btn-link">SignUp</a>
+      </form>
+      {% endif %}
+
     </nav>
     
     <!--Add a dealer table here -->
