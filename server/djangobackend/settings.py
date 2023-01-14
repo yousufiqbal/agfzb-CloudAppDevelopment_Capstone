@@ -29,7 +29,7 @@ APPEND_SLASH = True
 
 ALLOWED_HOSTS = ['localhost', 'localhost:8000', 'https://yousufiqbalh-8000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
 
-CSRF_TRUSTED_ORIGINS = ['https://yousufiqbalh-8000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'] 
+CSRF_TRUSTED_ORIGINS = ['yousufiqbalh-8000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai', '.cognitiveclass.ai'] 
 
 
 # Application definition
