@@ -43,7 +43,30 @@
 
     </nav>
     
-    <!--Add a dealer table here -->
+    <table class="table" id="table" data-filter-control="true">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Dealer Name</th>
+          <th>City</th>
+          <th>Address</th>
+          <th>Zip</th>
+          <th data-field="state" data-filter-control="select">State</th>
+        </tr>
+        <tbody>
+          {% for dealership in dealerships %}
+          <tr>
+            <td>{{ dealership.id }}</td>
+            <td><a href="{% url 'djangoapp:dealer-details' dealership.id %}">{{ dealership.full_name }}</a></td>
+            <td>{{ dealership.city }}</td>
+            <td>{{ dealership.address }}</td>
+            <td>{{ dealership.zip }}</td>
+            <td>{{ dealership.st }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </thead>
+    </table>
     
     <!-- Footer -->
     <footer class="footer navbar" style="margin-top: auto;">
@@ -52,6 +75,13 @@
         <a class="btn btn-link" href="/djangoapp/contact">Contact Us</a>
       </div>
     </footer>
+
+    <!-- JS -->
+    <script>
+      $(function() {
+        $('#table').bootstrapTable()
+      })
+    </script>
 
   </body>
 
